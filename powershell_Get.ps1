@@ -1,4 +1,11 @@
 $script:tempPath = -join ($env:TEMP, '\ws_setup')
+Write-Verbose -Message 'Verifying temp dir...'
+If (-not (Test-Path $script:tempPath)) {
+    Write-Verbose -Message '    CREATING temp dir.'
+    New-Item -Path $script:tempPath -ItemType Directory -Force
+} Else {
+    Write-Verbose -Message '    VERIFIED Temp.'
+}
 
 Function Get-WSSetupFile   {
     <#
