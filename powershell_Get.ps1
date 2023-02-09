@@ -8,10 +8,10 @@ If ($isLocalAdmin) {
         Start-Process $ps -Verb runas -ArgumentList "& '$script'"
         exit
     }
-} Else {
-    Start-Process $ps -ArgumentList (@('-File', $script) + $args) -Credential $credential
-    exit
-}
+}# Else {
+#    Start-Process $ps -ArgumentList (@('-File', $script) + $args) -Credential $credential
+#    exit
+#}
 
 $script:tempPath = 'C:\down\ws_setup'
 
