@@ -1,11 +1,3 @@
-$script = $MyInvocation.MyCommand.Definition
-$ps     = Join-Path $PSHome 'powershell.exe'
-
-If (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
-    powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command ""iex ""& { $(irm 'https://raw.githubusercontent.com/neztach/EmDeploy/main/powershell_Get.ps1') }""""'}"
-    exit
-}
-
 $script:tempPath = 'C:\down\ws_setup'
 
 Write-Verbose -Message 'Verifying temp dir...'
