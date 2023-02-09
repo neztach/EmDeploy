@@ -25,4 +25,6 @@ irs 'https://aka.ms/install-powershell.ps1'
 Invoke-RestMethod 'https://raw.githubusercontent.com/neztach/EmDeploy/main/ws_setup.ps1' -OutFile $script:tempPath\ws_setup.ps1
 
 $pwsh = "$env:LOCALAPPDATA\Microsoft\powershell\pwsh.exe"
-. $pwsh -nologo -noprofile -file $script:tempPath\ws_setup.ps1
+&args = '-nologo -noprofile -file C:\down\ws_setup\ws_setup.ps1'
+Start-Process pwsh.exe -ArgumentList $args
+#. $pwsh -nologo -noprofile -file $script:tempPath\ws_setup.ps1
